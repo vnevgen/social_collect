@@ -1,0 +1,27 @@
+{% extends "person/base.html" %}
+
+{% block title %}Add person{% endblock %}
+
+{% block content %}
+
+    <div class="welcome">
+        Type name of new person <i class="fa fa-angle-down"></i>
+    </div>
+
+    <div class="list">
+        <div class="item">
+            <div class="input name-input">
+                <input type="text" value="" placeholder="Jack Johnson" />
+            </div>
+            <div class="button add" onClick="person.add()">
+                Add
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <i class="fa fa-angle-left"></i><a href="/">get back</a>
+    </div>
+
+{% endblock %}

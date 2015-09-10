@@ -1,0 +1,4 @@
+.idea
+/static/bower
+/social_collect/settings_tokens.py
+/social_collect/mydb

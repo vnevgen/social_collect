@@ -1,0 +1,19 @@
+{% load feed_filters %}
+
+<div class="item item-twitter">
+    <div class="post-text">
+        {{ item.post.text | urlize_target_blank:40 | urlize_screen_names:"twitter"}}
+    </div>
+    <div class="post-medias">
+        {% for media in item.post.entities.media %}
+            <a class="image" onClick="feed.expand(this)"><img src="/getfile/{{ media.local_url }}" alt="" /></a>
+        {% endfor %}
+    </div>
+    <div class="time">
+        <a target="_blank" href="http://twitter.com/{{ accounts.twitter.screen_name }}/status/{{ item.post.id }}">{{ item.time|get_formatted_time }}<i class="fa fa-twitter"></i></a>
+        <span>
+            {{ item.post.favorite_count|wrap_counter:"fa-star" }}
+            {{ item.post.retweet_count|wrap_counter:"fa-retweet" }}
+        </span>
+    </div>
+</div>

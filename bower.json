@@ -1,0 +1,21 @@
+{
+  "name": "social_collect",
+  "version": "0.9",
+  "authors": [
+    "Vitaly Nevgen <acidburn.by@gmail.com>"
+  ],
+  "description": "Social collect collects users posts from three social networks - Twitter, Instagram and VK (VKontakte)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "components-font-awesome": "~4.4.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

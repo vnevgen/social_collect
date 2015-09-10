@@ -1,0 +1,19 @@
+{% load feed_filters %}
+
+<div class="item item-instagram">
+    {% if item.post.caption %}
+        <div class="post-text">
+            {{ item.post.caption.text | urlize_target_blank:40 | urlize_screen_names:"instagram"}}
+        </div>
+    {% endif %}
+    <div class="post-medias">
+        <a class="image" onClick="feed.expand(this)"><img src="/getfile/{{ item.post.images.standard_resolution.local_url }}" alt="" /></a>
+    </div>
+    <div class="time">
+        <a target="_blank" href="{{ item.post.link }}">{{ item.time|get_formatted_time }}<i class="fa fa-instagram"></i></a>
+        <span>
+            {{ item.post.likes.count|wrap_counter:"fa-heart" }}
+            {{ item.post.comments.count|wrap_counter:"fa-comment" }}
+        </span>
+    </div>
+</div>

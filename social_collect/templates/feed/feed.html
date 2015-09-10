@@ -1,0 +1,53 @@
+{% load feed_filters %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ name }}'s timeline</title>
+
+    <script src="{% static 'bower/jquery/dist/jquery.min.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'feed.css' %}">
+    <link rel="stylesheet" href="{% static 'bower/components-font-awesome/css/font-awesome.min.css' %}">
+
+    <script src="{% static 'feed.js' %}" type="text/javascript"></script>
+
+</head>
+<!-- test -->
+<body>
+    <audio id="html5_player"></audio>
+
+    <div class="page">
+        <div class="name">
+            <span>{{ name }}'s timeline</span>
+            <a href="/person/{{ user_id }}/edit"><i style="margin-left: 10px;" class="fa fa-pencil"></i></a>
+        </div>
+        <div class="home-link"><i class="fa fa-angle-left"></i><a href="/">jump to home</a></div>
+        <div class="list">
+            {% for item in feed_data %}
+
+                {% if item.type == "twitter" %}
+                    {% include 'feed/core/twitter.html' %}
+                {% endif %}
+
+                {% if item.type == "instagram" %}
+                    {% include 'feed/core/instagram.html' %}
+                {% endif %}
+
+                {% if item.type == "vk" %}
+                    {% include 'feed/core/vk.html' %}
+                {% endif %}
+
+                {% empty %}
+                    <div class="item no-posts">
+                        No posts available
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

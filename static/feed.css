@@ -1,0 +1,223 @@
+.page {
+    max-width: 500px;
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.list {
+    margin: 5px;
+}
+
+.name {
+    font-size: 32px;
+    text-align: center;
+    color: #464646;
+    padding: 30px 10px 10px;
+}
+
+.name a {
+    color: #464646;
+}
+
+
+.item {
+    padding: 15px;
+    border: 1px solid #6D6D6D;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.item .time {
+    margin-top: 10px;
+    text-align: left;
+}
+
+
+.item .time a, .item .post-text a, .home-link a {
+    text-decoration: none;
+}
+
+.item .time a:hover, .item .post-text a:hover, .home-link a:hover {
+    text-decoration: underline;
+}
+
+.item .time i {
+    margin-left: 6px;
+}
+
+.item .time span {
+    float: right;
+}
+
+.item .time span .shadowed {
+    opacity: 0.2;
+}
+
+
+
+
+.item .image {
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.item .image > img {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: -3px;
+}
+
+.item .post-medias {
+    margin-top: 15px;
+}
+
+.item > div:first-child {
+    margin-top: 0 !important;
+}
+
+
+
+.item .post-medias a {
+    margin-top: 15px;
+    display: block;
+}
+
+.item .post-medias a:first-child {
+    margin-top: 0 !important;
+}
+
+
+.item .post-medias .image {
+    border-radius: 3px;
+    max-height: 280px;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.home-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.home-link i {
+    margin-right: 5px;
+}
+
+.home-link a {
+    color: black;
+}
+
+.item.no-posts {
+    border: 1px solid #dadada;
+    color: #BBB;
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+/* ---------- twitter styles below ---------- */
+
+
+.item-twitter {
+    border: 1px solid #83aecb;
+    background-color: #e9f2f7;
+}
+
+.item-twitter .time * {
+    color: #97B3C5;
+}
+
+.item-twitter a {
+    color: #5C76B7;
+}
+
+
+
+
+
+/* ---------- instagram styles below ---------- */
+
+
+.item-instagram {
+    border: 1px solid #D6D8D8;
+    background-color: #FAFAFA;
+}
+
+.item-instagram .time * {
+    color: #B7B1A5;
+}
+
+.item-instagram a {
+    color: #125688;
+}
+
+
+
+
+/* ---------- vk styles below ---------- */
+
+.item-vk {
+    border: 1px solid #567ca4;
+    background-color: #FFFFFF;
+}
+
+.item-vk .repost:first-child {
+    margin-top: 0 !important;
+}
+
+.item-vk .repost {
+    margin-top: 15px;
+    border-left: 2px solid #95ACC3;
+    padding-left: 12px;
+}
+
+.item-vk .time * {
+    color: #87A4C1;
+}
+
+.item-vk a {
+    color: #2B587A;
+}
+
+
+.item-vk .post-medias .audio {
+    background-color: #EFF3F7;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.item-vk .post-medias .audio i {
+    padding: 10px 10px 10px 13px;
+    background-color: #597DA3;
+    color: white;
+    border-radius: 3px;
+    margin-right: 12px;
+}
+
+.item-vk .post-medias .audio i:before {
+    content: "\f04b";
+}
+
+.item-vk .post-medias .audio.playing i {
+    padding: 10px 10px 10px 12px;
+}
+
+.item-vk .post-medias .audio.playing i:before {
+    content: "\f04c";
+}
+
+.item-vk .post-medias .audio div {
+    text-overflow: ellipsis;
+    max-width: 380px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}

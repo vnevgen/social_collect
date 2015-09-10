@@ -1,0 +1,38 @@
+{% load feed_filters %}
+
+{% if not post.text|is_empty %}
+    <div class="post-text">
+        {{ post.text | urlize_target_blank:40 | urlize_vk_screen_names | linebreaksbr}}
+    </div>
+{% endif %}
+
+
+{% if post.attachments %}
+
+    <div class="post-medias">
+        {% for attachment in post.attachments %}
+
+            {% if attachment.type == "photo" %}
+                <a class="image" onclick="feed.expand(this)"><img src="/getfile/{{ attachment.photo.local_url }}" alt="" /></a>
+            {% endif %}
+
+            {% if attachment.type == "audio" %}
+                <a>
+                    <div onClick="feed.playAudio(this)" class="audio" data-url="/getfile/{{ attachment.audio.local_url }}" >
+                        <i class="fa"></i><div>{{ attachment.audio.artist }} - {{ attachment.audio.title }}</div>
+                    </div>
+                </a>
+            {% endif %}
+
+            {% if attachment.type == "link" %}
+                <a target="_blank" href="{{ attachment.link.url }}"><i class="fa fa-external-link"></i> {{ attachment.link.url | truncate:42}}</a>
+            {% endif %}
+
+            {% if attachment.type == "album" %}
+                <a target="_blank" href="https://vk.com/album{{ attachment.album.owner_id }}_{{ attachment.album.id }}"><i class="fa fa-external-link"></i> Album &quot;{{ attachment.album.title }}&quot;</a>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+
+{% endif %}

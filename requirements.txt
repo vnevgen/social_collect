@@ -1,0 +1,5 @@
+Django==1.8.4
+djangorestframework==3.2.3
+pymongo==3.0.3
+TwitterAPI==2.3.3.4
+psycopg2==2.5.4

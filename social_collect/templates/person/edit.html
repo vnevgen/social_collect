@@ -1,0 +1,67 @@
+{% extends "person/base.html" %}
+
+{% block title %}Edit person{% endblock %}
+
+{% block content %}
+
+    <script>
+        var person_id = {{ person.pk }};
+    </script>
+
+    <div class="welcome">
+        Here you can edit person's social accounts <i class="fa fa-angle-down"></i>
+    </div>
+
+    <div class="message" style="display: none;">
+        <div class="text"></div>
+        <div class="close-btn"><i class="fa fa-remove"></i></div>
+    </div>
+
+    <div class="list">
+        <div class="item">
+           <div class="input name-input">
+                <input type="text" style="width: 224px;" value="{{ person.name }}" placeholder="Jack Johnson" />
+           </div>
+           <div class="button change" onClick="person.changeName();">
+               Change
+           </div>
+        </div>
+
+        {% for account in person.accounts.all %}
+
+        <div class="item">
+            <div class="circle overlay" onClick="person.setImage({{ account.pk }}, this);">
+                <i class="fa fa-{{ account.type }}"></i>
+            </div>
+            <div class="circle" style="background-image: url('/getfile/{{ account.image }}')"></div>
+            <a target="_blank" href="https://{{ account.type }}.com/{{ account.screen_name }}" class="name">
+                {{ account.name }}
+            </a>
+            <div class="right">
+                <div class="btn-remove" onClick="person.removeAccount({{ account.pk }}, this);"><i class="fa fa-remove"></i></div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="desc-text">
+        Add new social account <i class="fa fa-angle-down"></i>
+    </div>
+
+     <div class="list">
+        <div class="item">
+           <div class="input link-input">
+                <input type="text" value="" placeholder="https://service.com/screen.name" />
+           </div>
+           <div class="button add" onClick="person.addAccount()">
+               Add
+           </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <i class="fa fa-angle-left"></i><a href="/person/{{ person.pk }}">go to person's feed</a>
+    </div>
+
+{% endblock %}

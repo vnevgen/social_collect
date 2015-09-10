@@ -1,0 +1,39 @@
+{% load feed_filters %}
+
+<div class="item item-vk">
+
+    {% with post=item.post %}
+        {% include 'feed/core/vk_post.html' %}
+    {% endwith %}
+
+    {% if item.post.copy_history|length > 0 %}
+
+        <div class="repost">
+
+            {% for repost in item.post.copy_history %}
+
+                <div style="margin-bottom: 5px;">
+                    <a target="_blank" href="https://vk.com/wall{{ repost.owner_id }}_{{ repost.id }}">
+                        <i class="fa fa-retweet"></i> repost
+                    </a>
+                </div>
+
+                {% with post=repost %}
+                    {% include 'feed/core/vk_post.html' %}
+                {% endwith %}
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+    <div class="time">
+        <a target="_blank" href="http://vk.com/{{ accounts.vk.screen_name }}?w=wall{{ accounts.vk.social_id }}_{{ item.post.id }}">{{ item.time|get_formatted_time }}<i class="fa fa-vk"></i></a>
+        <span>
+            {{ item.post.likes.count|wrap_counter:"fa-heart" }}
+            {{ item.post.reposts.count|wrap_counter:"fa-retweet" }}
+            {{ item.post.comments.count|wrap_counter:"fa-comment" }}
+        </span>
+    </div>
+</div>

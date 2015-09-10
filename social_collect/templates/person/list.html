@@ -1,0 +1,36 @@
+{% extends "person/base.html" %}
+
+{% block title %}Person list{% endblock %}
+
+{% block content %}
+
+    <div class="welcome">
+        Select person to view or add new <i class="fa fa-angle-down"></i>
+    </div>
+    <div class="list">
+        <a class="item-wrap" href="/person/add">
+            <div class="item add-new">
+                <div class="circle plus"><i class="fa fa-plus"></i></div>
+                <div class="name">Add new..</div>
+            </div>
+        </a>
+
+        {% for person in persons %}
+            <a class="item-wrap" href="/person/{{ person.pk }}">
+                <div class="item">
+                    <div class="circle" style="background-image: url('/getfile/{{ person.image }}')"></div>
+                    <div class="name">{{ person.name }}</div>
+                    <div class="chevron"><i class="fa fa-angle-right"></i></div>
+                </div>
+            </a>
+        {% endfor %}
+
+
+        <div class="item update" onClick="util.update(this)">
+           Update
+        </div>
+
+    </div>
+
+{% endblock %}
+
