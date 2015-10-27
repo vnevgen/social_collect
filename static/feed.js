@@ -50,7 +50,7 @@ var feed = {
             var trigger_name = this.player_paused ? "play" : "pause";
             this.player_selector.trigger(trigger_name);
 
-            this.player_paused = !player_paused;
+            this.player_paused = !this.player_paused;
             audio_elem.toggleClass("playing");
         } else {
             $(".audio").removeClass("playing");

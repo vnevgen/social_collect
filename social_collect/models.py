@@ -19,11 +19,15 @@ class Person(models.Model):
     @property
     def image(self):
         try:
+            
             return self.accounts.get(use_image=True).image
         except PersonAccount.DoesNotExist:
+           
             # if not selected desired image
-            return self.accounts.first().image  # if  returns None
+            if not self.accounts.exists():
+                return ''
 
+            return self.accounts.first().image  # if  returns None
 
 class PersonAccount(models.Model):
     person = models.ForeignKey(Person, related_name='accounts', blank=False)
